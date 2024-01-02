@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head id="WPM">
+        <title>Shyam's website</title>
+        <link rel = "stylesheet" href = "styles.css">
+    </head>
+    
+    <body id="backgroundImgForWPM" onload="OnLoadHighestScore()">
+        <header>
+                <h1>Words per minute test</h1>
+        </header>
+        <header>
+            <div class= "topnav">
+                <a href = "index.html">Home</a>
+                <a href = "bio.html">Bio</a>
+                <a href = "projects.html">Projects</a>
+                <a class = "active" href = "firebaseLogin.html">Firebase</a>
+                <a href = "chatroom.html">Chatroom</a>
+            </div>
+        </header>
+
+    <h2 id=txtWPM>Words per minute test here (Type as fast as you can!)</h2>
+    <div class="imgContainer">
+        <img src="https://codehs.com/uploads/2fc470a8ed31e15da5515336200edfcb" id="typingTextScoreImage"></img>
+        <p id="scoreTxt">Your score is: None</p>
+        <p id="leaderboard"></p>
+        <p id="leaderboard2"></p>
+    </div>
+    <div class="container">
+        <div class="Quote-display DisableCopy" id="txtimg">quote</div>
+        <br>
+        <textarea id = "typingBox" class="quote-input" autofocus>quote</textarea>
+        <br>
+        <br>
+    </div>
+    
+    <div class="ButtonStartStyle">
+    <button id=" buttonStart" onclick="myTimer = setInterval(Timeralert, 1000)">Click to start time!</button>
+    </div>
+    <br>
+    <br>
+    <div class="TimerTextHereStyle">
+    <p id="demo">0</p>
+    </div>
+    <p id="demo1"></p>
+
+    
+<script>
+    var characterSpan; 
+    const quoteDisplayElement = document.getElementById("txtimg");
+    const quoteInputElement = document.getElementById("typingBox");
+    
+    quoteInputElement.addEventListener('input', () => {
+        const arrayQuote = quoteDisplayElement.querySelectorAll("span");
+        const arrayValue = quoteInputElement.value.split("");
+        let correct =true
+        arrayQuote.forEach((characterSpan, index) => {
+            const character = arrayValue[index];
+            if (character == null){
+                characterSpan.classList.remove("correct");
+                characterSpan.classList.remove("incorrect");
+                correct = false
+            } else if (character === characterSpan.innerText) {
+                characterSpan.classList.add("correct");
+                characterSpan.classList.remove("incorrect");
+            } else {
+                characterSpan.classList.remove("correct");
+                characterSpan.classList.add("incorrect");
+                correct = false
+            }
+            
+        })
+        
+        if (correct) {
+           checkText() 
+        }
+    })
+    
+
+    async function renderNewQuote() {
+        const quote = 'The lion is a large felid of the genus Panthera native to Africa and India. It has muscular, deep-chested body, short, rounded head, round ears, and a hairy tuft at the end of its tail. The lion is an apex and keystone predator; although some lions scavenge when opportunities occur and have been known to hunt humans, the species typically does not.';
+        quoteDisplayElement.innerHTML = "";
+        quote.split('').forEach(character => {
+            characterSpan = document.createElement('span');
+            characterSpan.innerText = character;
+            quoteDisplayElement.appendChild(characterSpan);
+
+        })
+        quoteInputElement.value = null
+    }
+
+renderNewQuote()
+</script>
+
+<script>
+var minutes_global = c/60
+var score_global = 98/minutes_global
+var email = sessionStorage.getItem("userEmail");
+var index=email.indexOf("@")
+var name = email.substring(0,index)
+
+    var c = 0;
+    function Timeralert() {
+        document.getElementById("demo").innerHTML = ++c;
+    }
+    
+    function checkText(){
+        var typing=document.getElementById("typingBox").value;
+        if (typing =="The lion is a large felid of the genus Panthera native to Africa and India. It has muscular, deep-chested body, short, rounded head, round ears, and a hairy tuft at the end of its tail. The lion is an apex and keystone predator; although some lions scavenge when opportunities occur and have been known to hunt humans, the species typically does not."){
+            window.alert("Great job! The text matches! You score will be calculated in a moment...")
+            clearInterval(myTimer);
+            var minutes = c/60;
+            var scoreBeforeRound = 63/minutes;
+            var score = Math.round(scoreBeforeRound);
+            var highestScore = 150;
+            var s1=firebase.database().ref("score");
+                //on any change to the node named "spot1"
+               //change the id="label1" text on your webpage to the new value in the database
+            s1.once('value', function(snapshot){
+                var oldscore=snapshot.val()
+                if (score > oldscore && score<highestScore){
+                    firebase.database().ref("score").set(score)
+                    firebase.database().ref("name").set(name)
+                    window.alert("You just beat the highest score!!!")
+                    window.alert("Your new high score: " + score + " WPM")
+                    window.location.href = "FirebaseProject.html";
+                }
+                
+                else if (score >= highestScore){
+                    window.alert("That doesn't seem like a legitimate score!")
+                    window.alert("Your score: " + score + " WPM")
+                    window.location.href = "FirebaseProject.html";
+                }
+                else{
+                    window.alert("Sorry, you didn't beat the high score!")
+                }
+            document.getElementById("scoreTxt").innerHTML="Your score is: " + score + " WPM";
+                
+            });
+
+            //push score to firebase
+            
+    }   
+        else {
+            window.alert("Sorry, seems there is mistake in the text! Try checking it again...")
+        }
+    }
+    function OnLoadHighestScore(){
+        window.alert("Welcome to Words per minute test!")
+        window.alert("Please don't start typing before starting the timer! Have fun typing!")
+        var s2 = firebase.database().ref("name");
+        s2.once("value", function(snapshot){
+           var nameFromFireBase = snapshot.val()
+           var s1=firebase.database().ref("score");
+        s1.once("value", function(snapshot){
+            document.getElementById("leaderboard").innerHTML= nameFromFireBase + " scored the highest score.";
+            document.getElementById("leaderboard2").innerHTML= "Highest score scored is: " + snapshot.val() + " WPM";
+        });
+        })
+    }
+</script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.4/firebase.js"></script>
+        
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+    <script>
+          // Your web app's Firebase configuration
+          
+          
+  var firebaseConfig = {
+    apiKey: "AIzaSyCg5DSFoA3YpEoOf4Im1bqOwVhcayGIb5s",
+    authDomain: "fir-project-d8f02.firebaseapp.com",
+    projectId: "fir-project-d8f02",
+    storageBucket: "fir-project-d8f02.appspot.com",
+    messagingSenderId: "924888857187",
+    appId: "1:924888857187:web:ffa3590ce5f67ad3315656"
+  };
+
+
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+    </script>
+          
+          
+    
+        <footer id="footerForAllWebsFireProject">
+            <h3>Copyright @2021</h3>
+            <h3>Created by Shyam Thangaraj Senthil Nathan</h3>
+            <h3>Contact me @ ts.shyam123@gmail.com</h3>
+            <h3 id = schoolweb><a href = "https://www.livermoreschools.org/granadahigh">My School's Webpage</a></h3>
+        </footer>
+    </body>
+</html>

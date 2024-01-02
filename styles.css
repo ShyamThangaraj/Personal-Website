@@ -1,0 +1,333 @@
+footer,header,section{
+    text-align:center;
+}
+header{
+    background-color:lightblue;
+    text-align:left;
+    font-size: 20px;
+}
+
+}
+header a {
+    text-decoration:none;
+    color: white;
+    float:left;
+}
+
+body {
+    background-image: url("https://codehs.com/uploads/f264b4e2c142a3a610ae29e606fbe093");
+    background-repeat: repeat;
+    background-size:100%;
+}
+
+
+#footerForAllWebs{
+    background:#04AA6D;
+    color:white;
+    margin-top:37%;
+}
+
+#footerForAllWebsChat{
+    background:#04AA6D;
+    color:white;
+    margin-top:25%;   
+}
+
+#footerForAllWebsChatSignup{
+    background:#04AA6D;
+    color:white;
+    margin-top:25%;   
+}
+
+.topnav{
+    background-color: #333;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    color:#f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.topnav a:hover{
+    background-color: #ABB0B8;
+    color: black;
+}
+
+.topnav a.active { 
+    background-color: #04AA6D;
+    color:white;
+}
+
+#messageInput{
+    color:white;
+    font-size: 40px;
+    text-align:left;
+}
+
+#signin{
+    text-align: center;
+    background-color:lightblue;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+#signup{
+    text-align: center;
+    background-color:lightblue;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+#actuatChatHeader{
+    font-size:20px;
+}
+
+#txtWPM{
+    font-size:25px;
+    background-color:#04AA6D;
+}
+
+
+#typingBox{
+    width:783px;
+    height:264.5px;
+    margin-left:5%;
+    font-size:23px;
+    border: 4px solid #878787;
+}
+
+#demo{
+    color:white;
+}
+
+
+#Allscores{
+    color:white;
+}
+
+#pullTxtcheck{
+    color:white;
+}
+
+
+#typingTextScoreImage{
+    width:750px;
+    height:526.5px;
+    float:right;
+    margin-right:5%;
+    border: 4px solid #878787
+    
+}
+
+
+#scoreTxt{
+    margin-left:68%;
+    margin-top:7.5%;
+    
+}
+
+#leaderboard{
+    margin-left:68%;
+    margin-top:11%;
+}
+
+#leaderboard2{
+    margin-left:68%;
+    margin-top:13%;
+}
+
+.imgContainer p{
+    position:absolute;
+}
+
+.imgContainer {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.ButtonStartStyle {
+    margin-left:44.5%;
+    padding: 15px 32px;
+    background-color:#04AA6D;
+    text-decoration:none;
+    display: inline-block;
+    border: 4px solid #dddddd;
+    
+}
+
+.TimerTextHereStyle{
+    margin-left:47.59%;
+    padding: 15px 32px;
+    background-color:#333;
+    text-decoration:none;
+    display: inline-block;
+    border: 4px solid #dddddd;
+}
+
+
+#footerForAllWebsFireProject{
+    background:#04AA6D;
+    color:white;
+    margin-top:1%;
+}
+
+.correct {
+    color:#A4DE02;
+}
+
+.incorrect {
+    color:#a61607;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+.DisableCopy{
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    -moz-user_select:none /*Mozilla */
+    -ms-user-select:none; /*Microsoft Surface */
+    color:#d4d4d4;
+    padding: 15px 32px;
+    background-color:#757c88;
+    margin-left:5%;
+    margin-right:53%;
+    font-size:30px;
+    border: 4px solid #dddddd;
+}
+
+.quote-input:focus{
+    border-color: black;
+}
+
+#footerForAllWebsBio{
+    background:#04AA6D;
+    color:white;
+    margin-top:35%;
+}
+
+#footerForAllWebsProject{
+    margin-top:175%;
+    background:#04AA6D;
+    color:white;
+}
+
+#Project1Link{
+    color:white;
+    padding: 14px 16px;
+    background-color:#333;
+    text-decoration:none;
+    display: inline-block;
+    border: 4px solid #dddddd;   
+    float:left;
+}
+
+#Project2Link{
+    color:white;
+    padding: 14px 16px;
+    background-color:#333;
+    text-decoration:none;
+    display: inline-block;
+    border: 4px solid #dddddd;
+    float:left;
+}
+
+#Project3Link{
+    color:white;
+    padding: 14px 16px;
+    background-color:#333;
+    text-decoration:none;
+    display: inline-block;
+    border: 4px solid #dddddd;
+    float:left;
+}
+
+#Project4Link{
+    color:white;
+    padding: 14px 16px;
+    background-color:#333;
+    text-decoration:none;
+    display: inline-block;
+    border: 4px solid #dddddd;
+    float:left;
+}
+
+#Project5Link{
+    color:white;
+    padding: 14px 16px;
+    background-color:#333;
+    text-decoration:none;
+    display: inline-block;
+    border: 4px solid #dddddd;
+    float:left;
+}
+
+#Project6Link{
+    color:white;
+    padding: 14px 16px;
+    background-color:#333;
+    text-decoration:none;
+    display: inline-block;
+    border: 4px solid #dddddd;
+    float:left;
+}
+
+#Project7Link{
+    color:white;
+    padding: 14px 16px;
+    background-color:#333;
+    text-decoration:none;
+    display: inline-block;
+    border: 4px solid #dddddd;
+    float:left;
+}
+
+.projectLeft{
+    float:left;
+    color:white;
+    text-align:center;
+}
+
+.projectRight{
+    float:right;
+    color:white;
+    text-align:center;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+#projects1{
+    margin-top:5%;   
+}
+
+#projects2{
+    margin-top:5%;    
+}
+
+#projects3{
+    margin-top:5%;   
+}
+
+#projects4{
+    margin-top:5%; 
+}
+
+#projects5{
+    margin-top:20%; 
+}
+
+#projects6{
+    margin-top:5%;
+}
+
+#projects7{
+    margin-top:20%;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Shyam's website</title>
+        <link rel = "stylesheet" href = "myStyling.css">
+        <link rel = "stylesheet" href = "styles.css">
+    </head>
+    
+    <body>
+        <header>
+                <h1>Welcome to our Chatroom login page!</h1>
+        </header>
+        <header>
+            <div class= "topnav">
+                <a href = "index.html">Home</a>
+                <a href = "bio.html">Bio</a>
+                <a href = "projects.html">Projects</a>
+                <a href = "firebaseLogin.html">Firebase</a>
+                <a class = "active" href = "chatroom.html">Chatroom</a>
+            </div>
+        </header>
+        
+        
+        <main id= "signin" class=info>
+            <h1>Signin here</h1>
+            <p>Don't have an account? <a href="chatroomsignup.html">sign up here</a></p>
+            <input id="username" placeholder = "email">
+            <input id="password" placeholder = "password" type="password">
+            <br/>
+            <br>
+            <button onclick = "login()" id="submit">sign in</button>
+        </main>
+        
+        
+        
+        <footer id="footerForAllWebsChat">
+            <h3>Copyright @2021</h3>
+            <h3>Created by Shyam Thangaraj Senthil Nathan</h3>
+            <h3>Contact me @ ts.shyam123@gmail.com</h3>
+            <h3 id = schoolweb><a href = "https://www.livermoreschools.org/granadahigh">My School's Webpage</a></h3>
+        </footer>
+          <script src="https://www.gstatic.com/firebasejs/8.6.4/firebase.js"></script>
+        
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+        <script>
+          // Your web app's Firebase configuration
+          
+          
+          var firebaseConfig = {
+    apiKey: "AIzaSyBerhRW_plaxB0CZdYqWBCnrYVPoDjw2qA",
+    authDomain: "chatroom-81ee8.firebaseapp.com",
+    projectId: "chatroom-81ee8",
+    storageBucket: "chatroom-81ee8.appspot.com",
+    messagingSenderId: "957945900811",
+    appId: "1:957945900811:web:002d6acddd0bd5c3b53c0e"
+  };
+
+
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          </script>
+          
+         
+<script>
+ 	function login(){
+
+     //pull the email and username from the inputs on your html page
+     var email = document.getElementById("username").value
+     var password= document.getElementById("password").value
+
+
+                
+                
+                
+                //take this from the firebase docs
+                firebase.auth().signInWithEmailAndPassword(email, password)
+                  .then((userCredential) => {
+                    // Signed in
+                  
+                    var UserEmail = firebase.auth().currentUser.email;
+                    //sessionStorage so we can access user email on next page
+                    sessionStorage.setItem("userEmail", email)
+                    
+                    window.alert("You are logged in!");
+                     window.location.href = "actualchat.html";
+                    
+                  })
+                  .catch((error) => {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    window.alert("Error: " + errorMessage);
+                    
+                  });
+
+}
+
+
+</script>
+
+    </body>
+</html>

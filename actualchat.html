@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Shyam's website</title>
+        <link rel = "stylesheet" href="myStyling.css">
+        <link rel = "stylesheet" href = "styles.css">
+    </head>
+    <body onload="loaduser()">
+    <section>
+        <header  id="actuatChatHeader">
+            <h1>Welcome to our Chatroom!</h1>
+        </header>
+        
+        <header>
+            <div class= "topnav">
+                <a href = "index.html">Home</a>
+                <a href = "bio.html">Bio</a>
+                <a href = "projects.html">Projects</a>
+                <a href = "firebaseLogin.html">Firebase</a>
+                <a class = "active" href = "chatroom.html">Chatroom</a>
+            </div>
+        </header>
+        <h3 id="user">Welcome!</h3>
+        <input id="msg" placeholder = "message"></input>
+        <button id="button" onclick = "enterData()">send</button>
+        <pre id="messageInput">Names and Messages</pre> 
+    </section>     
+
+     <script src="https://www.gstatic.com/firebasejs/8.6.4/firebase.js"></script>
+        
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+        <script>
+          // Your web app's Firebase configuration
+          
+          
+          var firebaseConfig = {
+    apiKey: "AIzaSyBerhRW_plaxB0CZdYqWBCnrYVPoDjw2qA",
+    authDomain: "chatroom-81ee8.firebaseapp.com",
+    projectId: "chatroom-81ee8",
+    storageBucket: "chatroom-81ee8.appspot.com",
+    messagingSenderId: "957945900811",
+    appId: "1:957945900811:web:002d6acddd0bd5c3b53c0e"
+  };
+
+
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          </script>
+          
+    <script>
+        function enterData(){
+            // find message from text box
+            var message = document.getElementById("msg").value;
+            // get email from the sessionStorage stored in login page
+            var email = sessionStorage.getItem("userEmail");
+            var name = email.substring(0,email.indexOf("@"));
+            //var email="ggggg"
+            // set up a variable for both the email and message
+            // and store it in the category named "messageAndNames"
+            var fullMessage={name: name, message: message}
+            // push the email and message to the database
+            //and store it in the category named "messageAndNames"
+            firebase.database().ref("messagesAndNames").push(fullMessage);
+            document.getElementById("msg").value = ""
+            loadTextFromDatabase()
+        }
+    </script>
+    
+    <script> 
+        function loaduser(){
+        var email = sessionStorage.getItem("userEmail");
+        var index=email.indexOf("@")
+        var name = email.substring(0,index)
+        document.getElementById("user").innerHTML="Welcome: " + name;
+        loadTextFromDatabase()
+        }
+    </script>
+        
+    <script>
+        function loadTextFromDatabase(){ 
+            // get the correct location in your firebase database
+            var dbRef=firebase.database().ref().child("messagesAndNames");
+            // this is an empty string to build with all the messages and names
+            var str = "";
+            // this is javascript code that runs a loop
+            // through all the data in that specific part of the database
+            dbRef.once('value', (snapshot)=>{
+                snapshot.forEach(function(data){
+     
+                    // build the str by adding the next name and 
+                    //following it with a colon
+                   str = "'" + data.val().message + "'<br /><br /><br /><br /><br />" + str;
+                   str =  data.val().name + "<br />                     " + str;
+            
+                    // build the str by adding the next message and 
+                    // following it with a line break
+
+                    
+                });
+                // write to your webpage
+                document.getElementById("messageInput").innerHTML=str;
+            });
+        
+        }
+    </script>
+    </body>
+</html>
