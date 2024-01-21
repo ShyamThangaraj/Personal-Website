@@ -15,12 +15,14 @@ The CodeHS Website was developed using Javascript, HTML, & CSS and is hosted by 
 ### Firebase (Words Per Minute)
 - Take a word typing test with a built-in leaderboard on the side. The leaderboard is updated to the Firebase database, showcasing the user with the highest words per minute.
 
-## Author
-
-Shyam Thangaraj ts.shyam123@gmail.com
-
 ## Getting Started
 
 To get started with the CodeHS Website:
 
 1. Access the website hosted on CodeHS --> shyamtha.codehs.me
+
+## Author
+
+Shyam Thangaraj ts.shyam123@gmail.com
+
+
