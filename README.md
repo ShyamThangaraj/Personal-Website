@@ -1,14 +1,27 @@
-# Personal Website
+# CodeHS Website
 
-This website was developed using Javascript, HTML, & CSS.
+## Introduction
 
-- Hosted by CodeHS.
-- Website functionalities -
-  - Projects page
-    - Contains Python Trinket projects - drawings, racing, APIs, cipher, etc.
-  - Chatroom
-    - Contains a room where one can send/receive messages. It updates the messages to Google’s Firebase database.
-  - Firebase (Words Per Minute)
-    - Contains a word typing test, with a leaderboard on the side. Whoever has the highest words per minute stays on the leaderboard. The leaderboard is updated to the Firebase database.
+The CodeHS Website was developed using Javascript, HTML, & CSS and is hosted by CodeHS. It offers various functionalities to enhance the user experience.
 
-Author: Shyam Thangaraj ts.shyam123@gmail.com
+## Features
+
+### Projects Page
+- Explore a variety of Python Trinket projects, including drawings, racing, APIs, cipher, and more.
+
+### Chatroom
+- Engage in a chatroom where users can send and receive messages. The messages are updated to Google’s Firebase database.
+
+### Firebase (Words Per Minute)
+- Take a word typing test with a built-in leaderboard on the side. The leaderboard is updated to the Firebase database, showcasing the user with the highest words per minute.
+
+## Author
+
+- **Shyam Thangaraj**
+  - Email: ts.shyam123@gmail.com
+
+## Getting Started
+
+To get started with the CodeHS Website:
+
+1. Access the website hosted on CodeHS --> shyamtha.codehs.me
