@@ -17,8 +17,8 @@ The CodeHS Website was developed using Javascript, HTML, & CSS and is hosted by 
 
 ## Author
 
-- **Shyam Thangaraj**
-  - Email: ts.shyam123@gmail.com
+Shyam Thangaraj
+Email: ts.shyam123@gmail.com
 
 ## Getting Started
 
