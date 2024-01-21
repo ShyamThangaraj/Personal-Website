@@ -1,5 +1,14 @@
 # CodeHS Website
 
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Features](#features)
+   1. [Projects Page](#projects-page)
+   2. [Chatroom](#chatroom)
+   3. [Firebase (Words Per Minute)](#firebase-words-per-minute)
+3. [Getting Started](#getting-started)
+4. [Author](#author)
+
 ## Introduction
 
 The CodeHS Website was developed using Javascript, HTML, & CSS and is hosted by CodeHS. It offers various functionalities to enhance the user experience.
